@@ -1,5 +1,9 @@
-## Admin Page
-root/admin
+## About this project
+Created for a General Assembly React class using the Goodreads API
+
+pages:
+root: http://localhost:3000
+admin: http://localhost:3000/admin
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
