@@ -8,21 +8,20 @@ class LandingPageContainer extends Component {
         return (
             <>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <LandingPage />
-                        }
-                    >
-                        <Route />
+                    <Route path="/" element={
+                        <LandingPage
+                        // books={books}
+                        />
+                    } > <Route />
                     </Route>
-                    <Route
-                        path="/admin"
-                        element={
-                            <Admin />
-                        }
-                    >
-                        <Route />
+                    <Route path="/admin" element={
+                        <Admin
+                        // books={books}
+                        // setBooks={this.setBooks}
+                        // udateBook={this.updateBook}
+                        // removeBook={this.removeBook}
+                        />
+                    }  > <Route />
                     </Route>
                 </Routes>
             </>
