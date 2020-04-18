@@ -39,31 +39,12 @@ class Book extends Component {
                                 </li>
                             ))}
                         </ul>
-                        <div class="subnav">
-                            <span id="add-retailer">+ New Retailer</span>
-                        </div>
-                        {/* 
-                        {book.links.map(item => (
-                            <div class="form-input">
-                                <label>{item.id}</label>
-                                <input type="text" placeholder={item.id} />
-                                <label>{item.url}</label>
-                                <input type="text" placeholder={item.url} />
-                                <div class="subnav">
-                                    <span id="save">Save</span>
-                                    <span id="delete">Delete</span>
-                                </div>
-                            </div>
-                        ))} */}
-
 
                     </div>
                 </div>
                 <div class="controls">
                     <button class="btn">Save Entry</button>
                     <button class="btn warning" onClick={() => removeBook(bookID)}>Delete Entry</button>
-                    {/* <button class="btn">Move Up</button>
-                                <button class="btn">Move Down</button> */}
                 </div>
 
             </article>

@@ -1,7 +1,23 @@
 // List of books, function to add from Goodreads, Function to Remove from List, Edit Book on List
+// Todos:
+// Add loading animation/text
+// Add error message so program doesn't crash
+// Make landing page reflect booklist
+// Host on github
+// Connect to Firebase
+// Make all inputs editable
+// Add/delete retailer links
+// Create multi-user login system
+// Generate multiple pages per user and manage from a admin panel
 
-import React, { Component } from 'react'
-import { Book } from "../Book";
+
+
+import React, { Component, useState, useEffect } from 'react'
+import Axios from 'axios';
+import Convert from 'xml-js';
+import { Book } from '../Book';
+
+
 
 class BookList extends Component {
 
@@ -9,7 +25,9 @@ class BookList extends Component {
         super(props)
 
         this.state = {
-            newBookInput: ''
+            newBookInput: '',
+            error: '',
+            fetchingData: false
         }
     }
 
@@ -20,22 +38,51 @@ class BookList extends Component {
     }
     handleKeyUp = (e) => {
         if (e.key === 'Enter') {
-            const { addNewBook } = this.props
-            addNewBook({
-                isbn: this.state.newBookInput,
-                imgurl: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1580724442l/29566048._SX98_.jpg',
-                title: 'Pandemic',
-                author: 'Sonia Shah',
-                desc: 'Book1 Description',
-                links: [
-                    { id: 'Amazon', url: 'https://www.amazon.com/dp/10DIGITISBN' },
-                    { id: 'B&N', url: 'http://www.barnesandnoble.com/s/13DIGITISBN' },
-                    { id: 'BAM', url: 'https://www.booksamillion.com/product/13DIGITISBN' },
-                    { id: 'IndieBound', url: 'https://www.indiebound.org/book/13DIGITISBN' }
-                ]
-            })
+            const apiKey = process.env.REACT_APP_API_KEY;
+            // 9781250118004
+            // 9781250012210
+            // 9781429979351
+            // 9781250139092 This one throws an error!!
+            const isbn = this.state.newBookInput;
+            const requestUri =
+                `https://cors-anywhere.herokuapp.com/` +
+                `https://www.goodreads.com/book/isbn/${isbn}?key=${apiKey}`;
+            Axios.get(requestUri)
+                .then((res) => {
+                    const data = JSON.parse(
+                        Convert.xml2json(res.data, { compact: true, spaces: 2 })
+                    );
+                    console.log(data.GoodreadsResponse.book);
+
+                    const { addNewBook } = this.props
+                    addNewBook({
+                        isbn: isbn,
+                        imgurl: data.GoodreadsResponse.book.image_url._text,
+                        title: data.GoodreadsResponse.book.title._cdata,
+                        author: data.GoodreadsResponse.book.authors.author.name._text,
+                        desc: data.GoodreadsResponse.book.description._cdata,
+                        links: [
+                            { id: 'Amazon', url: "https://www.amazon.com/dp/" + data.GoodreadsResponse.book.isbn._cdata },
+                            { id: 'B&N', url: "http://www.barnesandnoble.com/s/" + data.GoodreadsResponse.book.isbn13._cdata },
+                            { id: 'BAM', url: "https://www.booksamillion.com/product/" + data.GoodreadsResponse.book.isbn13._cdata },
+                            { id: 'IndieBound', url: "https://www.indiebound.org/book/" + data.GoodreadsResponse.book.isbn13._cdata },
+                            { id: 'Powells', url: "https://www.powells.com/book/-" + data.GoodreadsResponse.book.isbn13._cdata }
+                        ]
+                    })
+
+
+                }, (error) => {
+                    console.log(error);
+                    this.setState({
+                        error: error.toString(),
+                        fetchingData: false
+                    });
+                });
+
+
 
         }
+
 
     }
 
@@ -71,9 +118,9 @@ class BookList extends Component {
                             onKeyUp={this.handleKeyUp}
                         />
 
-                        <div class="controls">
+                        {/* <div class="controls">
                             <button class="btn" >Submit</button>
-                        </div>
+                        </div> */}
                     </div>
                 </article>
             </div>
