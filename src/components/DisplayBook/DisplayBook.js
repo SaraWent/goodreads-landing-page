@@ -9,23 +9,23 @@ class DisplayBook extends Component {
         return (
 
 
-            <article class="book-cont">
-                <div class="book-img">
+            <article className="book-cont">
+                <div className="book-img">
 
-                    <img src={book.imgurl} />
+                    <img src={book.imgurl} alt={book.title} />
                 </div>
-                <div class="book-desc">
-                    <h3 class="bk-title">{book.title}</h3>
-                    <h4 class="author">{book.author}</h4>
+                <div className="book-desc">
+                    <h3 className="bk-title">{book.title}</h3>
+                    <h4 className="author">{book.author}</h4>
 
-                    <span class="bk-desc">
+                    <span className="bk-desc">
                         <b>{book.desc}</b>
                     </span>
-                    <div class="retailers">
-                        <ul class="buy-links">
+                    <div className="retailers">
+                        <ul className="buy-links">
                             {book.links.map(item => (
                                 <li key={item.id}>
-                                    <a class="button" href={item.url} target="_blank">{item.id}</a>
+                                    <a className="button" href={item.url} target="_blank">{item.id}</a>
                                 </li>
                             ))}
                         </ul>

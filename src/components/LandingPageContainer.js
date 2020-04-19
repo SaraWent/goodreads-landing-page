@@ -25,24 +25,13 @@ class LandingPageContainer extends Component {
         }
     }
     render() {
-        const { books } = this.state
         return (
-            <>
-                <Routes>
-                    <Route
-                        path="/"
-                        render={(renderProps) => <LandingPage {...renderProps} books={this.state.books} />}
-                    />
-                    <Route
-                        path="/admin"
-                        render={(renderProps) => <Admin {...renderProps} books={this.state.books} />}
-                    />
-
-                </Routes>
-            </>
+            <Routes>
+                <Route path="/" element={<LandingPage books={this.state.books} />} />
+                <Route path="/admin" element={<Admin books={this.state.books} />} />
+            </Routes>
         );
     }
 }
-
 
 export { LandingPageContainer };

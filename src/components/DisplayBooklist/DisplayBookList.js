@@ -4,12 +4,18 @@ import { DisplayBook } from '../DisplayBook'
 
 
 class DisplayBookList extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            newBookInput: '',
+            errorMSG: '',
+            fetchingData: false
+        }
+    }
 
     render() {
-        const {
-            books,
-            removeBook
-        } = this.props
+        const { books, } = this.props
         return (
             <div>
                 {

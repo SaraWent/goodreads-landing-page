@@ -3,9 +3,8 @@ import { LandingPageContainer } from './components';
 import './App.css';
 
 function App() {
-  return (
-    <LandingPageContainer />
-  );
+  return <LandingPageContainer />;
+
 }
 
 export default App;

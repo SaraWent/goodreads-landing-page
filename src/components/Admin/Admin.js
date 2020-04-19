@@ -3,6 +3,12 @@ import { BookList } from "../Booklist";
 
 
 class Admin extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            books: this.props.books
+        };
+    }
 
 
     removeBook = (bookIndex) => {
@@ -24,7 +30,7 @@ class Admin extends Component {
 
 
     render() {
-        const { books } = this.state
+        const { books } = this.state;
         return (
             <main>
                 <div class="container">

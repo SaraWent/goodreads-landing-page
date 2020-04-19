@@ -14,7 +14,7 @@ class Book extends Component {
 
             <article className="book-cont item">
                 <div className="book-img">
-                    <img src={book.imgurl} />
+                    <img src={book.imgurl} alt={book.title} />
                 </div>
                 <div className="book-desc">
                     <div className="form-input">

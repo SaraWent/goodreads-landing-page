@@ -26,7 +26,7 @@ class BookList extends Component {
 
         this.state = {
             newBookInput: '',
-            error: '',
+            errorMSG: '',
             fetchingData: false
         }
     }
@@ -49,6 +49,7 @@ class BookList extends Component {
                 `https://www.goodreads.com/book/isbn/${isbn}?key=${apiKey}`;
             Axios.get(requestUri)
                 .then((res) => {
+
                     const data = JSON.parse(
                         Convert.xml2json(res.data, { compact: true, spaces: 2 })
                     );
@@ -69,12 +70,18 @@ class BookList extends Component {
                             { id: 'Powells', url: "https://www.powells.com/book/-" + data.GoodreadsResponse.book.isbn13._cdata }
                         ]
                     })
+                    this.setState({
+                        errorMSG: "",
+                        newBookInput: "",
+                        fetchingData: true
+                    });
 
 
                 }, (error) => {
                     console.log(error);
                     this.setState({
-                        error: error.toString(),
+                        errorMSG: "Invalid Entry",
+                        newBookInput: "",
                         fetchingData: false
                     });
                 });
@@ -87,12 +94,9 @@ class BookList extends Component {
     }
 
     render() {
-        const {
-            books,
-            removeBook
-        } = this.props
+        const { books, removeBook } = this.props;
+        const { errorMSG } = this.state;
 
-        const { newBookInput } = this.state
 
         return (
             <div>
@@ -117,10 +121,7 @@ class BookList extends Component {
                             onChange={this.handleChange}
                             onKeyUp={this.handleKeyUp}
                         />
-
-                        {/* <div class="controls">
-                            <button class="btn" >Submit</button>
-                        </div> */}
+                        <span class="error">{errorMSG}</span>
                     </div>
                 </article>
             </div>
