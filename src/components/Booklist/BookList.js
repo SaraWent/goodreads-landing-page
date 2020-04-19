@@ -12,7 +12,7 @@
 
 
 
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import Axios from 'axios';
 import Convert from 'xml-js';
 import { Book } from '../Book';
