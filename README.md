@@ -24,6 +24,10 @@ Objectives (in no particular order):
 
 • ~~Function to delete from list~~
 
+• ~~Generate links to retailers based on ISBN info~~
+
+• Abbreviate the description to end at the first break tag
+
 • Display on consumer-facing page without controls
 
 • Make all Book info editable
