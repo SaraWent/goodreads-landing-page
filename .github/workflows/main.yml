@@ -20,4 +20,4 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.REACT_APP_API_KEY }}
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: src
