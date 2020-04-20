@@ -2,7 +2,9 @@
   "name": "goodreads-landing-page",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://github.com/SaraWent/goodreads-landing-page",
+  "homepage": "https://github.com/SaraWent/goodreads-landing-page",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -37,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
