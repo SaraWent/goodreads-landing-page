@@ -1,17 +1,12 @@
-name: CI
-
+name: Deploy to GitHub Pages
 on:
   push:
     branches:
       - master
-
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-
     - name: Checkout
       uses: actions/checkout@v1
 
@@ -19,13 +14,10 @@ jobs:
       run: |
         npm install
         npm run-script build
-      env:
-        REACT_APP_APIKey: ${{ secrets.REACT_APP_APIKey }}
-        REACT_APP_APISecret: ${{ secrets.REACT_APP_APISecret }}
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.REACT_APP_API_KEY }}
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: dist
