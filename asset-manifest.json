@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/SaraWent/goodreads-landing-page/static/css/main.1030cec2.chunk.css",
+    "main.js": "/SaraWent/goodreads-landing-page/static/js/main.757792cf.chunk.js",
+    "main.js.map": "/SaraWent/goodreads-landing-page/static/js/main.757792cf.chunk.js.map",
+    "runtime-main.js": "/SaraWent/goodreads-landing-page/static/js/runtime-main.0c437a71.js",
+    "runtime-main.js.map": "/SaraWent/goodreads-landing-page/static/js/runtime-main.0c437a71.js.map",
+    "static/js/2.6c4bbfb2.chunk.js": "/SaraWent/goodreads-landing-page/static/js/2.6c4bbfb2.chunk.js",
+    "static/js/2.6c4bbfb2.chunk.js.map": "/SaraWent/goodreads-landing-page/static/js/2.6c4bbfb2.chunk.js.map",
+    "index.html": "/SaraWent/goodreads-landing-page/index.html",
+    "precache-manifest.b96e4590d9f2e2cd412681cef19ee18d.js": "/SaraWent/goodreads-landing-page/precache-manifest.b96e4590d9f2e2cd412681cef19ee18d.js",
+    "service-worker.js": "/SaraWent/goodreads-landing-page/service-worker.js",
+    "static/css/main.1030cec2.chunk.css.map": "/SaraWent/goodreads-landing-page/static/css/main.1030cec2.chunk.css.map",
+    "static/js/2.6c4bbfb2.chunk.js.LICENSE.txt": "/SaraWent/goodreads-landing-page/static/js/2.6c4bbfb2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0c437a71.js",
+    "static/js/2.6c4bbfb2.chunk.js",
+    "static/css/main.1030cec2.chunk.css",
+    "static/js/main.757792cf.chunk.js"
+  ]
+}
