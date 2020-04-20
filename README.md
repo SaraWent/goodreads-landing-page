@@ -2,28 +2,46 @@
 Created for a General Assembly React class using the Goodreads API
 
 pages:
-root: http://localhost:3000
-admin: http://localhost:3000/admin
+
+root: https://sarawent.github.io/goodreads-landing-page/
+
+admin: https://sarawent.github.io/goodreads-landing-page/admin
 
 
 This project uses axios:
+
 https://www.npmjs.com/package/axios
 
+
 and xml-js:
+
 https://www.npmjs.com/package/xml-js
 
+
 Objectives (in no particular order):
+
 • ~~Pull data from Goodreads API and add to list~~
+
 • ~~Function to delete from list~~
+
 • Display on consumer-facing page without controls
+
 • Make all Book info editable
+
 • Input and error-specific validation system
+
 • Fix so Books with multiple authors don't break it.
+
 • Connect to Firebase
+
 • Create user login system
+
 • User can create multiple pages
+
 • Implement data structure with Redux
+
 • Allow user to re-order items (drag and drop?)
+
 • search by name as well as ISBN
 
 
