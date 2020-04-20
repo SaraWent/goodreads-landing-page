@@ -18,7 +18,7 @@ and xml-js:
 https://www.npmjs.com/package/xml-js
 
 
-##Objectives (in no particular order):
+## Objectives (in no particular order):
 
 • ~~Pull data from Goodreads API and add to list~~
 
