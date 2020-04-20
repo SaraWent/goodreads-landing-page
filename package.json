@@ -2,7 +2,7 @@
   "name": "goodreads-landing-page",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sarawent.github.io/goodreads-landing-page/",
+  "homepage": "https://sarawent.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
