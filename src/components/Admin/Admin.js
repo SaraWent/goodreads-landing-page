@@ -30,7 +30,7 @@ class Admin extends Component {
 
 
     render() {
-        const { books } = this.state;
+        const { books } = this.state
         return (
             <main>
                 <div class="container">

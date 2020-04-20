@@ -27,7 +27,8 @@ class BookList extends Component {
         this.state = {
             newBookInput: '',
             errorMSG: '',
-            fetchingData: false
+            fetchingData: false,
+            errorMSG: ''
         }
     }
 
@@ -49,7 +50,6 @@ class BookList extends Component {
                 `https://www.goodreads.com/book/isbn/${isbn}?key=${apiKey}`;
             Axios.get(requestUri)
                 .then((res) => {
-
                     const data = JSON.parse(
                         Convert.xml2json(res.data, { compact: true, spaces: 2 })
                     );
@@ -70,18 +70,11 @@ class BookList extends Component {
                             { id: 'Powells', url: "https://www.powells.com/book/-" + data.GoodreadsResponse.book.isbn13._cdata }
                         ]
                     })
-                    this.setState({
-                        errorMSG: "",
-                        newBookInput: "",
-                        fetchingData: true
-                    });
-
 
                 }, (error) => {
                     console.log(error);
                     this.setState({
-                        errorMSG: "Invalid Entry",
-                        newBookInput: "",
+                        errorMSG: "Invalid Input",
                         fetchingData: false
                     });
                 });
@@ -94,8 +87,13 @@ class BookList extends Component {
     }
 
     render() {
-        const { books, removeBook } = this.props;
-        const { errorMSG } = this.state;
+        const {
+            books,
+            removeBook,
+        } = this.props
+
+        const { newBookInput } = this.state
+        const { errorMSG } = this.state
 
 
         return (
@@ -122,6 +120,10 @@ class BookList extends Component {
                             onKeyUp={this.handleKeyUp}
                         />
                         <span class="error">{errorMSG}</span>
+
+                        {/* <div class="controls">
+                            <button class="btn" >Submit</button>
+                        </div> */}
                     </div>
                 </article>
             </div>
