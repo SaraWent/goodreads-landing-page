@@ -1,6 +1,6 @@
 import React from 'react';
-// import { DisplayBookList } from "../DisplayBooklist";
-import { BookList } from "../Booklist";
+import { DisplayBookList } from "../DisplayBooklist";
+// import { BookList } from "../Booklist";
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -46,8 +46,8 @@ class LandingPage extends React.Component {
 
                         </article> */}
 
-                        {/* <DisplayBookList books={books} /> */}
-                        <BookList books={books} />
+                        <DisplayBookList books={books} />
+                        {/* <BookList books={books} /> */}
 
                     </div>
                 </main>
